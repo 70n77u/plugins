@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class ExceptionHandler<C> {
+public final class ExceptionHandler<C> {
 	private final MinecraftCaptionFormatter<C> formatter = new MinecraftCaptionFormatter<>();
 	private final Logger logger;
 	private final Function<C, Audience> audienceMapper;

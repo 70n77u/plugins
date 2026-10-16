@@ -8,7 +8,8 @@ import io.papermc.paper.registry.data.dialog.action.DialogAction;
 import io.papermc.paper.registry.data.dialog.body.DialogBody;
 import io.papermc.paper.registry.data.dialog.input.DialogInput;
 import io.papermc.paper.registry.data.dialog.type.DialogType;
-import net.fabicraft.common.locale.BrandColor;
+import net.fabicraft.common.locale.Components;
+import net.fabicraft.common.locale.MessageType;
 import net.fabicraft.paper.core.FabiCraftPaperCore;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickCallback;
@@ -70,15 +71,13 @@ public final class SignDialog extends DialogFactory {
 		Dialog dialog = Dialog.create(builder -> builder.empty()
 				.base(DialogBase.builder(render(Component.translatable("fabicraft.paper.core.dialog.sign.title")))
 						.body(List.of(
-								DialogBody.plainMessage(render(Component.translatable()
-												.key("fabicraft.paper.core.dialog.sign.body")
-												.arguments(Component.text()
-														.content("MiniMessage")
-														.color(BrandColor.ACCENT.textColor)
-														.clickEvent(ClickEvent.openUrl("https://docs.papermc.io/adventure/minimessage/format/"))
-												).build()
-										)
-								)
+								DialogBody.plainMessage(render(Components.translatable(
+										"fabicraft.paper.core.dialog.sign.body",
+										MessageType.INFO,
+										Component.text()
+												.content("MiniMessage")
+												.clickEvent(ClickEvent.openUrl("https://docs.papermc.io/adventure/minimessage/format/"))
+								)))
 						))
 						.inputs(inputs).build())
 				.type(DialogType.notice(ActionButton.create(
